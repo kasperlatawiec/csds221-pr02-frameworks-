@@ -243,7 +243,7 @@ export default function App() {
                   alignItems="center"
                 >
                   <Edit />
-                  &nbsp;Update Task
+                  &nbsp;Edit Task
                 </Grid>
               </Typography>
             ) : (
@@ -339,7 +339,7 @@ export default function App() {
               }}
             >
               <Grid display="flex" justifyContent="center" alignItems="center">
-                <AddCircle fontSize="small" /> &nbsp;Edit
+                <Edit fontSize="small" /> &nbsp;Edit
               </Grid>
             </Button>
           )}
@@ -420,20 +420,12 @@ export default function App() {
               </TableCell>
               <TableCell align="center">{Task.priority}</TableCell>
               <TableCell align="center">
-                {Task.completed ? (
-                  <Checkbox
-                    defaultChecked
-                    onClick={() => {
-                      checkCompleted(Task.index);
-                    }}
-                  ></Checkbox>
-                ) : (
-                  <Checkbox
-                    onClick={() => {
-                      checkCompleted(Task.index);
-                    }}
-                  ></Checkbox>
-                )}
+                <Checkbox
+                  checked={Task.completed}
+                  onClick={() => {
+                    checkCompleted(Task.index);
+                  }}
+                ></Checkbox>
               </TableCell>
               <TableCell align="center">
                 {!Task.completed ? (
